@@ -1,25 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 import App from './App.jsx';
 import Liked from './pages/liked/Liked.jsx';
 import './index.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>
-  },
-  {
-    path:'/liked',
-    element: <Liked/>
-  }
-]);
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <HashRouter>
+    <Routes>
+      <Route path='/' element={<App/>}/>
+      <Route path='/liked' element={<Liked/>}/>
+    </Routes>
+  </HashRouter>
 );
